@@ -280,4 +280,6 @@
     <string name="pulse_custom_div">Bar spacing</string>
     <string name="pulse_filled_block_size">Block size</string>
     <string name="pulse_empty_block_size">Block spacing</string>
+
+    <string name="background_processes_settings_title">Background processes</string>
 </resources>
