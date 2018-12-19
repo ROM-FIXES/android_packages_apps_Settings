@@ -2326,6 +2326,20 @@
             android:theme="@style/CryptKeeperBlankTheme"
         />
 
+        <!-- Gesture Anywhere -->
+        <activity android:name="Settings$GestureAnywhereActivity"
+             android:label="@string/gesture_anywhere_title"
+             android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.gestureanywhere.GestureAnywhereSettings" />
+        </activity>
+        <activity android:name=".gestureanywhere.GestureAnywhereBuilderActivity" />
+        <activity android:name=".gestureanywhere.GestureAnywhereCreateGestureActivity" />
+
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
                 android:label="@string/crypt_keeper_encrypt_title">
