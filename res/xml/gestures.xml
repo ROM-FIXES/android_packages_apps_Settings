@@ -88,4 +88,14 @@
         android:title="@string/swipe_to_screenshot_gesture_title"
         android:summary="@string/swipe_to_screenshot_gesture_summary"
         android:defaultValue="false" />
+
+    <!-- Gesture anywhere -->
+    <PreferenceScreen
+        android:id="@+id/gesture_anywhere"
+        android:key="gesture_anywhere"
+        android:fragment="com.android.settings.gestureanywhere.GestureAnywhereSettings"
+        android:title="@string/gesture_anywhere_title"
+        android:summary="@string/gesture_anywhere_summary"
+        android:icon="@drawable/gesture_anywhere_icon" />
+
 </PreferenceScreen>
