@@ -179,6 +179,12 @@
     <string name="min_label">Min</string>
     <string name="max_label">Max</string>
 
+    <!-- Back gesture settings -->
+    <string name="back_gesture_settings_dialog_title">Back gesture settings</string>
+    <string name="back_gesture_sensitivity_dialog_message">Higher sensitivity may conflict with any app gestures along the edges of the screen.</string>
+    <string name="back_gesture_arrow_title">Back arrow animation</string>
+    <string name="back_gesture_arrow_message">Hide arrow with back gesture</string>
+
     <!-- Navigation bar hint -->
     <string name="show_navbar_hint_title">Navigation hint</string>
     <string name="show_navbar_hint_summary">Show navigation hint bar at the bottom of the screen</string>
