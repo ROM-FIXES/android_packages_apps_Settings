@@ -38,6 +38,9 @@ import lineageos.providers.LineageSettings;
  * Dialog to set the back gesture's sensitivity in Gesture navigation mode.
  */
 public class GestureNavigationBackSensitivityDialog extends InstrumentedDialogFragment {
+
+    private boolean mArrowSwitchChecked;
+
     private static final String TAG = "GestureNavigationBackSensitivityDialog";
     private static final String KEY_BACK_SENSITIVITY = "back_sensitivity";
 
@@ -78,6 +81,17 @@ public class GestureNavigationBackSensitivityDialog extends InstrumentedDialogFr
         final Switch hintSwitch = view.findViewById(R.id.show_navbar_hint);
         hintSwitch.setChecked(isShowHintEnabled);
 
+        final Switch arrowSwitch = view.findViewById(R.id.back_arrow_gesture_switch);
+        mArrowSwitchChecked = LineageSettings.Secure.getInt(getActivity().getContentResolver(),
+                LineageSettings.Secure.HIDE_BACK_ARROW_GESTURE, 0) == 1;
+        arrowSwitch.setChecked(mArrowSwitchChecked);
+        arrowSwitch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mArrowSwitchChecked = arrowSwitch.isChecked() ? true : false;
+            }
+        });
+
         return new AlertDialog.Builder(getContext())
                 .setTitle(R.string.edge_to_edge_navigation_title)
                 .setView(view)
@@ -94,6 +108,8 @@ public class GestureNavigationBackSensitivityDialog extends InstrumentedDialogFr
                     int showHint = hintSwitch.isChecked() ? 1 : 0;
                     LineageSettings.System.putInt(cr,
                             LineageSettings.System.NAVIGATION_BAR_HINT, showHint);
+                    LineageSettings.Secure.putInt(getActivity().getContentResolver(),
+                            LineageSettings.Secure.HIDE_BACK_ARROW_GESTURE, mArrowSwitchChecked ? 1 : 0);
                 })
                 .create();
     }
