@@ -17,6 +17,6 @@
 
 <resources>
     <!-- Gesture Anywhere -->
-    <color name="ga_gesture_color">@*android:color/accent_material_dark</color>
+    <color name="ga_gesture_color">@*android:color/accent_device_default_light</color>
 </resources>
 
