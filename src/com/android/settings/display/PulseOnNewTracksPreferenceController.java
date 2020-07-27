@@ -13,13 +13,12 @@
  */
 package com.android.settings.display;
 
-import static android.provider.Settings.System.PULSE_ON_NEW_TRACKS;
+import static lineageos.providers.LineageSettings.System.PULSE_ON_NEW_TRACKS;
 
 import android.app.settings.SettingsEnums;
 import android.content.Context;
 import android.hardware.display.AmbientDisplayConfiguration;
 import android.os.UserHandle;
-import android.provider.Settings;
 import android.text.TextUtils;
 
 import androidx.annotation.VisibleForTesting;
@@ -28,6 +27,8 @@ import androidx.preference.Preference;
 import com.android.settings.core.TogglePreferenceController;
 import com.android.settings.overlay.FeatureFactory;
 import com.android.settingslib.core.instrumentation.MetricsFeatureProvider;
+
+import lineageos.providers.LineageSettings;
 
 public class PulseOnNewTracksPreferenceController extends
         TogglePreferenceController implements Preference.OnPreferenceChangeListener {
@@ -70,14 +71,14 @@ public class PulseOnNewTracksPreferenceController extends
 
     @Override
     public boolean isChecked() {
-         return Settings.System.getIntForUser(mContext.getContentResolver(),
+         return LineageSettings.System.getIntForUser(mContext.getContentResolver(),
                 PULSE_ON_NEW_TRACKS, 1,
                 MY_USER) == 1;
     }
 
     @Override
     public boolean setChecked(boolean isChecked) {
-        Settings.System.putInt(mContext.getContentResolver(), PULSE_ON_NEW_TRACKS, isChecked ? ON : OFF);
+        LineageSettings.System.putInt(mContext.getContentResolver(), PULSE_ON_NEW_TRACKS, isChecked ? ON : OFF);
         return true;
     }
 
